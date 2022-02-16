@@ -69,7 +69,7 @@ export default {
             }else if(registerCreds.password != registerCreds.password_confirm){
                 errors.password = true;
             }else{
-                axios.post('http://localhost:3000/auth/register', {
+                axios.post(`${this.$api_url}/auth/register`, {
                     username: registerCreds.username,
                     password: registerCreds.password,
                 }).then(res=>{

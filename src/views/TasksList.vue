@@ -78,14 +78,14 @@ export default {
     },
     methods: {
         getTasks(){
-            this.$axios.get('http://localhost:3000/tasks', {headers: this.$token()}).then(res=>{
+            this.$axios.get(`${this.$api_url}/tasks`, {headers: this.$token()}).then(res=>{
                 this.tasks = res.data.tasks
             }).catch(err=>{
                 this.$store.dispatch("err/setError", err.response.data.message);
             })
         },
         createTask(){
-            this.$axios.post('http://localhost:3000/admin/create-task', {
+            this.$axios.post(`${this.$api_url}/admin/create-task`, {
                 title: this.newTask.title,
                 description: this.newTask.description,
                 priority: this.newTask.priority,
