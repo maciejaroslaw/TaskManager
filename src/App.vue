@@ -42,8 +42,7 @@ export default {
       return this.$store.state.err.isErr;
     },
     testenv(){
-      let api = process.env.API_URL;
-      console.log(`${api}`);
+      return process.env.API_URL;
     }
   },
   methods: {
