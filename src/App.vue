@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    {{testenv}}
+    <div @click="testenv">TEST</div>
     <NavBar />
     <div>
       <router-view></router-view>
@@ -49,6 +49,10 @@ export default {
   methods: {
     errOff(){
       this.$store.dispatch('err/errOff');
+    },
+    testenv(){
+      const api = this.$api_url;
+      console.log(api);
     }
   },
   mounted(){

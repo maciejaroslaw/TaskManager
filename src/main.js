@@ -17,6 +17,7 @@ app.config.globalProperties.$token = () => {
     }else{
         return {}
     }
-}
+};
+app.config.globalProperties.$api_url = process.env.API_URL;
 
 app.mount('#app')
