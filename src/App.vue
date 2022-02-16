@@ -42,9 +42,6 @@ export default {
       // }
       return this.$store.state.err.isErr;
     },
-    testenv(){
-      return process.env.API_URL;
-    }
   },
   methods: {
     errOff(){
