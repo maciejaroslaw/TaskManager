@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    {{testenv}}
     <NavBar />
     <div>
       <router-view></router-view>
