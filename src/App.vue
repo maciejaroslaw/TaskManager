@@ -49,6 +49,7 @@ export default {
   },
   mounted(){
     // this.$this.store.dispatch('err/setError', )
+    console.log(process.env.API_URL)
   }
 }
 </script>
