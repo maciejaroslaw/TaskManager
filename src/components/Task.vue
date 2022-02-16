@@ -114,7 +114,7 @@
                 this.modalEditTask = !this.modalEditTask; 
             },
             editTask(){
-                this.$axios.put('http://localhost:3000/edit-task', {
+                this.$axios.put(`${this.$api_url}/edit-task`, {
                     taskToEdit: this.taskToEdit,
                 }, {headers: this.$token()}).then(res=>{
                     this.$emit('refresh');
@@ -125,7 +125,7 @@
             },
             deleteTask(){
                 // console.log(this.$props.task);
-                this.$axios.delete(`http://localhost:3000/admin/delete-task/${this.$props.task.id}`,  {headers: this.$token()}).then(res=>{
+                this.$axios.delete(`${this.$api_url}/admin/delete-task/${this.$props.task.id}`,  {headers: this.$token()}).then(res=>{
                     this.$emit('refresh');
                 }).catch(err=>console.log(err));
             },
