@@ -43,7 +43,7 @@ export default {
     },
     testenv(){
       let api = process.env.API_URL;
-      console.log(api);
+      console.log(`${api}`);
     }
   },
   methods: {
@@ -53,7 +53,6 @@ export default {
   },
   mounted(){
     // this.$this.store.dispatch('err/setError', )
-    this.testenv();
   }
 }
 </script>
