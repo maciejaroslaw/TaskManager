@@ -41,6 +41,10 @@ export default {
       // }
       return this.$store.state.err.isErr;
     },
+    testenv(){
+      let api = process.env.API_URL;
+      console.log(api);
+    }
   },
   methods: {
     errOff(){
@@ -49,8 +53,7 @@ export default {
   },
   mounted(){
     // this.$this.store.dispatch('err/setError', )
-    let api = process.env.API_URL;
-    console.log(console.log(api));
+    this.testenv();
   }
 }
 </script>
