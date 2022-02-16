@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         login(){
-            this.$axios.post("http://localhost:3000/auth/login", {
+            this.$axios.post(`${this.$api_url}/auth/login`, {
                 username: this.loginCreds.username,
                 password: this.loginCreds.password
             }).then(res=>{
