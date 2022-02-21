@@ -18,6 +18,6 @@ app.config.globalProperties.$token = () => {
         return {}
     }
 };
-app.config.globalProperties.$api_url = process.env.VUE_APP_API_URL;
+app.config.globalProperties.$api_url = process.env.VUE_APP_API_URL || 'http://localhost:3000';
 
 app.mount('#app')
