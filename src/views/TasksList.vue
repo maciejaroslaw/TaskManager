@@ -102,7 +102,7 @@
                     <div class="block content">
                         <h1>Delete this task?</h1>
                         <div class="is-flex is-justify-content-space-between mt-4">
-                            <button @click.prevent="modalDelTask = !modalEDelask" class="button is-danger">No</button>
+                            <button @click.prevent="modalDelTask = !modalDelTask" class="button is-danger">No</button>
                             <button @click.prevent="deleteTask" class="button is-success">Yes</button>
                         </div>
                     </div>
