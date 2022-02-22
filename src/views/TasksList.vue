@@ -54,13 +54,17 @@
                                 <span v-show="taskToEdit.priority === 'Very important'" class="tag is-danger is-medium">Very important</span>
                             </div>
                         </div>
-                        <div v-show="!toEdit" class="is-flex is-justify-content-space-between mt-4">
-                            <button v-if="isAdmin" class="button is-danger">Delete task</button>
-                            <button @click.prevent="switchEdit(true)" class="button is-success">Edit Task</button>
+                        <div v-show="!toEdit">
+                            <div class="is-flex is-justify-content-space-between mt-4">
+                                <button v-if="isAdmin" class="button is-danger">Delete task</button>
+                                <button @click.prevent="switchEdit(true)" class="button is-success">Edit Task</button>
+                            </div>
                         </div>
-                        <div v-show="toEdit" class="is-flex is-justify-content-space-between mt-4">
-                            <button @click.prevent="modalEditTask = !modalEditTask" class="button is-danger">Discard changes</button>
-                            <button @click.prevent="editTask" class="button is-success">Save</button>
+                        <div v-show="toEdit">
+                            <div class="is-flex is-justify-content-space-between mt-4">
+                                <button @click.prevent="modalEditTask = !modalEditTask" class="button is-danger">Discard changes</button>
+                                <button @click.prevent="editTask" class="button is-success">Save</button>
+                            </div>
                         </div>
                     </div>
                 </div>
