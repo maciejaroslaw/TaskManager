@@ -202,6 +202,8 @@ export default {
             }, {headers: this.$token()}).then(res=>{
                 this.getTasks();
                 this.modalEditTask = !this.modalEditTask;
+                this.taskToEdit = {};
+                this.toEdit = false;
             }).catch(err=>{
                 this.$store.dispatch("err/setError", err.response.data.message);
             });
