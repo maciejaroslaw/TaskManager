@@ -9,11 +9,6 @@
                 </div>
             </div>
             <div class="card-content">
-                <div class="media is-justify-content-space-between">
-                    <div class="media-left">
-                        <p class="title is-5">Task description</p>
-                    </div>
-                </div>
                 <div style="height: 50px" class="content line-clamp">
                     {{task.description}}
                 </div>
