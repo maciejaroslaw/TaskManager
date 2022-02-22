@@ -56,8 +56,8 @@
                         </div>
                         <div v-show="!toEdit">
                             <div class="is-flex is-justify-content-space-between mt-4">
-                                <button v-if="isAdmin" class="button is-danger">Delete task</button>
-                                <button @click.prevent="switchEdit(true)" class="button is-success">Edit Task</button>
+                                <button v-if="isAdmin" class="button is-danger is-outlined">Delete task</button>
+                                <button @click.prevent="switchEdit(true)" class="button is-info">Edit Task</button>
                             </div>
                         </div>
                         <div v-show="toEdit">
