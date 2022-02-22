@@ -187,7 +187,7 @@ export default {
                 priority: this.newTask.priority,
             }, {headers: this.$token()}).then(res=>{
                 this.getTasks();
-                this.modal = false;
+                this.modalCreateTask = false;
             }).catch(err=>{
                 this.$store.dispatch("err/setError", err.response.data.message);
             });
