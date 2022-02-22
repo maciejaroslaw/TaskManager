@@ -56,7 +56,7 @@
                         </div>
                         <div v-show="!toEdit">
                             <div class="is-flex is-justify-content-space-between mt-4">
-                                <button v-if="isAdmin" class="button is-danger is-outlined">Delete task</button>
+                                <button @click="modalDelTask = !modalDelTask" v-if="isAdmin" class="button is-danger is-outlined">Delete task</button>
                                 <button @click.prevent="switchEdit(true)" class="button is-info">Edit Task</button>
                             </div>
                         </div>
@@ -95,6 +95,21 @@
             </div>
             <button @click="modalCreateTask = !modalCreateTask" class="modal-close is-large" aria-label="close"></button>
         </div>
+        <div class="modal delete-task-modal" :class="[modalDelTask ? 'is-active': '']">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <div class="block content">
+                        <h1>Delete this task?</h1>
+                        <div class="is-flex is-justify-content-space-between mt-4">
+                            <button @click.prevent="modalDelTask = !modalEDelask" class="button is-danger">No</button>
+                            <button @click.prevent="deleteTask" class="button is-success">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button @click="modaDeleteTask = !modaDeleteTask" class="modal-close is-large" aria-label="close"></button>
+        </div>
     </div>
 </template>
 
@@ -117,6 +132,7 @@ export default {
             toEdit: false,
             modalCreateTask: false,
             modalEditTask: false,
+            modalDelTask: false,
         }
     },
     components: {
@@ -150,10 +166,6 @@ export default {
         }
     },
     methods: {
-        handleEditTask(task){
-            this.taskToEdit = {...task};
-            this.modalEditTask = !this.modalEditTask; 
-        },
         switchEdit(toEdit){
             if(toEdit == false){
                 this.taskToEdit = {}
@@ -179,6 +191,26 @@ export default {
             }).catch(err=>{
                 this.$store.dispatch("err/setError", err.response.data.message);
             });
+        },
+        handleEditTask(task){
+            this.taskToEdit = {...task};
+            this.modalEditTask = !this.modalEditTask; 
+        },
+        editTask(){
+            this.$axios.put(`${this.$api_url}/edit-task`, {
+                taskToEdit: this.taskToEdit,
+            }, {headers: this.$token()}).then(res=>{
+                this.getTasks();
+                this.modalEditTask = !this.modalEditTask;
+            }).catch(err=>{
+                this.$store.dispatch("err/setError", err.response.data.message);
+            });
+        },
+        deleteTask(){
+            // console.log(this.$props.task);
+            this.$axios.delete(`${this.$api_url}/admin/delete-task/${this.$props.task.id}`,  {headers: this.$token()}).then(res=>{
+                this.$emit('refresh');
+            }).catch(err=>console.log(err));
         },
     },
     mounted(){
