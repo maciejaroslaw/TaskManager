@@ -14,7 +14,7 @@
                         <p class="title is-5">Task description</p>
                     </div>
                 </div>
-                <div class="content">
+                <div style="height: 50px" class="content">
                     {{task.description}}
                 </div>
                 <div class="is-flex is-justify-content-end">

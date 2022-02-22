@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div @click="testenv">TEST</div>
     <NavBar />
     <div>
       <router-view></router-view>
@@ -16,7 +15,7 @@
                   </div>
               </div>
           </div>
-          <button @click.prevent="modalEditTask = !modalEditTask" class="modal-close is-large" aria-label="close"></button>
+          <button @click.prevent="errOff" class="modal-close is-large" aria-label="close"></button>
       </div>
     </div>
   </div>
@@ -47,14 +46,7 @@ export default {
     errOff(){
       this.$store.dispatch('err/errOff');
     },
-    testenv(){
-      const api = this.$api_url;
-      console.log(api);
-    }
   },
-  mounted(){
-    // this.$this.store.dispatch('err/setError', )
-  }
 }
 </script>
 
