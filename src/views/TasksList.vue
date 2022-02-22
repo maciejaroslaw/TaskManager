@@ -211,6 +211,10 @@ export default {
         deleteTask(){
             this.$axios.delete(`${this.$api_url}/admin/delete-task/${this.taskToEdit.id}`,  {headers: this.$token()}).then(res=>{
                 this.getTasks();
+                this.modalDelTask = false;
+                this.modalEditTask = false;
+                this.toEdit = false;
+                this.taskToEdit = {};
             }).catch(err=>console.log(err));
         },
     },
