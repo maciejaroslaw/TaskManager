@@ -158,9 +158,8 @@ export default {
             if(toEdit == false){
                 this.taskToEdit = {}
                 this.modalEditTask = false
-            }else{
-                this.toEdit = toEdit;
             }
+            this.toEdit = toEdit;
         },
         getTasks(){
             this.$axios.get(`${this.$api_url}/tasks`, {headers: this.$token()}).then(res=>{
