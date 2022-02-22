@@ -62,7 +62,7 @@
                         </div>
                         <div v-show="toEdit">
                             <div class="is-flex is-justify-content-space-between mt-4">
-                                <button @click.prevent="modalEditTask = !modalEditTask" class="button is-danger">Discard changes</button>
+                                <button @click.prevent="switchEdit(false)" class="button is-danger">Discard changes</button>
                                 <button @click.prevent="editTask" class="button is-success">Save</button>
                             </div>
                         </div>
@@ -155,8 +155,12 @@ export default {
             this.modalEditTask = !this.modalEditTask; 
         },
         switchEdit(toEdit){
-            console.log(toEdit);
-            this.toEdit = toEdit;
+            if(toEdit == false){
+                this.taskToEdit = {}
+                this.modalEditTask = false
+            }else{
+                this.toEdit = toEdit;
+            }
         },
         getTasks(){
             this.$axios.get(`${this.$api_url}/tasks`, {headers: this.$token()}).then(res=>{
