@@ -14,7 +14,7 @@
                         <p class="title is-5">Task description</p>
                     </div>
                 </div>
-                <div style="height: 50px" class="content">
+                <div style="height: 50px" class="content line-clamp">
                     {{task.description}}
                 </div>
                 <div class="is-flex is-justify-content-end">
@@ -65,5 +65,11 @@
 };
 .card{
     transition: all ease-out 300ms;
+}
+.line-clamp{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
 </style>
