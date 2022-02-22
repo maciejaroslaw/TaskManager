@@ -209,9 +209,8 @@ export default {
             });
         },
         deleteTask(){
-            // console.log(this.$props.task);
-            this.$axios.delete(`${this.$api_url}/admin/delete-task/${this.$props.task.id}`,  {headers: this.$token()}).then(res=>{
-                this.$emit('refresh');
+            this.$axios.delete(`${this.$api_url}/admin/delete-task/${this.taskToEdit.id}`,  {headers: this.$token()}).then(res=>{
+                this.getTasks();
             }).catch(err=>console.log(err));
         },
     },
