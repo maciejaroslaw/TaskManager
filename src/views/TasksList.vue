@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <button @click="modalEditTask = !modalEditTask" class="modal-close is-large" aria-label="close"></button>
+            <button @click="switchEdit(false)" class="modal-close is-large" aria-label="close"></button>
         </div>
         <div class="modal create-task-modal is-clipped" :class="[modalCreateTask ? 'is-active': '']">
             <div class="modal-background"></div>
