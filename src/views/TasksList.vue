@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal edit-task-modal" :class="[modalEditTask ? 'is-active': '']">
+        <div class="modal edit-task-modal is-clipped" :class="[modalEditTask ? 'is-active': '']">
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div style="margin-bottom: -10px;" class="tile is-vertical notification" 
@@ -71,7 +71,7 @@
             </div>
             <button @click="modalEditTask = !modalEditTask" class="modal-close is-large" aria-label="close"></button>
         </div>
-        <div class="modal create-task-modal" :class="[modalCreateTask ? 'is-active': '']">
+        <div class="modal create-task-modal is-clipped" :class="[modalCreateTask ? 'is-active': '']">
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div class="box">
@@ -95,7 +95,7 @@
             </div>
             <button @click="modalCreateTask = !modalCreateTask" class="modal-close is-large" aria-label="close"></button>
         </div>
-        <div class="modal delete-task-modal" :class="[modalDelTask ? 'is-active': '']">
+        <div class="modal delete-task-modal is-clipped" :class="[modalDelTask ? 'is-active': '']">
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div class="box">

@@ -54,10 +54,12 @@
 .no-margin{
     margin: 0 !important;
 }
-.card:hover{
-    transition: all ease-out 300ms;
-    transform: scale(1.10);
-};
+@media (hover: hover) {
+    .card:hover{
+        transition: all ease-out 300ms;
+        transform: scale(1.10);
+    };
+}
 .card{
     transition: all ease-out 300ms;
 }

@@ -8,7 +8,6 @@
                 <p v-show="errors.username" class="help is-danger">Usernamename is wrong</p>
                 </div>
             </div>
-
             <div class="field">
                 <label class="label">Password</label>
                 <div class="control">
@@ -28,64 +27,69 @@
                 <p class="help is-danger">{{errors.msg}}</p>
             </div>
             <div class="has-text-centered mt-4">
-                <button @click="register" class="button is-link is-centered">Sign Up</button>
+                <button @click="register" :class="[isLoading ? 'is-loading' : '']" class="button is-link is-centered">Sign Up</button>
             </div>
         </form>
     </div>
 </template>
 
 <script>
-import { reactive } from 'vue';
-import axios from 'axios';
-import { useStore } from "vuex";
-
 export default {
-    setup () {
-        const store = useStore();
-
-
-        const registerCreds = reactive({
-            username: '',
-            password: '',
-            password_confirm: '',
-        });
-        const errors = reactive({
-            username: false,
-            password: false,
-            msg: '',
-        });
-
-        function register(e){
+    data() {
+        return {
+            registerCreds: {
+                username: '',
+                password: '',
+                password_confirm: '',
+            },
+            errors: {
+                username: false,
+                password: false,
+                msg: ''
+            },
+            isLoading: false
+        }
+    },
+    methods: {
+        register(e){
             e.preventDefault();
+            this.isLoading = true;
 
-            errors.username = false;
-            errors.password = false;
-            errors.msg = '';
+            this.errors.username = false;
+            this.errors.password = false;
+            this.errors.msg = '';
 
-            if(!registerCreds.username){
-                errors.username = true;
-            }else if(!registerCreds.password){
-                errors.password = true;
-            }else if(registerCreds.password != registerCreds.password_confirm){
-                errors.password = true;
+            if(!this.registerCreds.username){
+                this.errors.username = true;
+            }else if(!this.registerCreds.password){
+                this.errors.password = true;
+            }else if(this.registerCreds.password != this.registerCreds.password_confirm){
+                this.errors.password = true;
             }else{
-                axios.post(`${this.$api_url}/auth/register`, {
-                    username: registerCreds.username,
-                    password: registerCreds.password,
+                console.log(this.$api_url);
+                this.$axios.post(`${this.$api_url}/auth/register`, {
+                    username: this.registerCreds.username,
+                    password: this.registerCreds.password,
                 }).then(res=>{
-                    console.log(res);
+                    this.$axios.post(`${this.$api_url}/auth/login`, {
+                        username: this.registerCreds.username,
+                        password: this.registerCreds.password,
+                    }).then(res=>{
+                        this.isLoading = false;
+                        this.$store.dispatch("auth/login", res.data);
+                        this.$router.push('/');
+                    })
+
                 }).catch(err=>{
                     // console.log(err.response.data.message);
                     // this.$store.dispatch('err/setError', err.response.data.message);
                     if(err.response.data.message === "Username already taken!"){
-                        errors.username = true;
+                        this.errors.username = true;
                     }
-                    store.dispatch("err/setError", err.response.data.message);
+                    
                 });
             }
         }
-
-        return {registerCreds, errors, register}
     }
 }
 </script>

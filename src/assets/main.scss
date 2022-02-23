@@ -1,1 +1,17 @@
 @import '~bulma/bulma';
+
+#app{
+    height: 100vh;
+    background-color: hsl(0, 0%, 96%);
+    
+}
+*{
+    font-family: 'Poppins', sans-serif !important;
+}
+.navbar {
+    &.is-transparent {
+        background-color: transparent;
+        background-image: none;
+    }
+}
+
