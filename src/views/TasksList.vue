@@ -34,7 +34,7 @@
                         </div>
                         <textarea v-show="toEdit" v-model="taskToEdit.description" class="textarea mt-4" placeholder="Task description"></textarea>
                         <div class="is-flex is-justify-content-space-between">
-                            <div class="block mt-4">
+                            <div v-show="toEdit" class="block mt-4">
                                 <label class="checkbox">
                                     Mark as completed
                                     <input v-model="taskToEdit.completed" type="checkbox">
