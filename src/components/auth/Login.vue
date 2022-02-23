@@ -16,7 +16,7 @@
             </div>
 
             <div class="has-text-centered">
-                <button class="button is-link is-centered">Sign in</button>
+                <button :class="[isLoading ? 'is-loading' : '']" class="button is-link is-centered">Sign in</button>
             </div>
         </form>
     </div>
@@ -27,6 +27,7 @@
 export default {
     data(){
         return {
+            isLoading: false;
             loginCreds: {
                 username: '',
                 password: '',
@@ -35,6 +36,7 @@ export default {
     },
     methods: {
         login(){
+            this.isLoading = true;
             this.$axios.post(`${this.$api_url}/auth/login`, {
                 username: this.loginCreds.username,
                 password: this.loginCreds.password
@@ -43,7 +45,8 @@ export default {
                 this.$store.dispatch("auth/login", res.data);
                 this.$router.push('/');
             }).catch(err=>{
-                this.$store.dispatch('err/setError', err.response.data.message)
+                this.$store.dispatch('err/setError', err.response.data.message);
+                this.isLoading = false;
             });
         }
     }
