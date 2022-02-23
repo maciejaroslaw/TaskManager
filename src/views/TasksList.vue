@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="columns is-flex-wrap-wrap mt-4">
+        <div v-if="!isLoading" class="columns is-flex-wrap-wrap mt-4 mx-0">
             <transition-group name="list-complete">
                 <div v-for="task in tasks" :key="task.id" class="list-complete-item column is-one-quarter">
                     <Task @openEdit="handleEditTask(task)" @refresh="getTasks()" :task="task" :isAdmin="isAdmin" />
@@ -17,6 +17,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div v-else class="is-flex is-justify-content-center">
+            <button class="button is-light is-loading is-large">White</button>
         </div>
         <div class="modal edit-task-modal is-clipped" :class="[modalEditTask ? 'is-active': '']">
             <div class="modal-background"></div>
@@ -118,6 +121,7 @@ import Task from '../components/Task.vue';
 export default {
     data() {
         return {
+            isLoading: true,
             tasks: null,
             newTask: {
                 title: '',
@@ -175,7 +179,8 @@ export default {
         },
         getTasks(){
             this.$axios.get(`${this.$api_url}/tasks`, {headers: this.$token()}).then(res=>{
-                this.tasks = res.data.tasks
+                this.tasks = res.data.tasks;
+                this.isLoading = false;
             }).catch(err=>{
                 this.$store.dispatch("err/setError", err.response.data.message);
             })
