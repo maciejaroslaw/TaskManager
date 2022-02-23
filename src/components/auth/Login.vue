@@ -1,5 +1,5 @@
 <template>
-    <div style="height: 100%" class="is-flex pt-6 is-align-items-start is-justify-content-center is-flex-direction-row columns Popins has-text-weight-semibold">
+    <div style="height: 100%" class="is-flex pt-6 is-align-items-start is-justify-content-center is-flex-direction-row columns mx-0 Popins has-text-weight-semibold">
         <form @submit.prevent="login" class="box p-6 column is-half">
             <div class="field">
                 <label class="label">Username</label>
