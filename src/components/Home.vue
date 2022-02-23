@@ -2,10 +2,15 @@
   <div class="hello block pt-6 pl-4">
     <div v-if="!currentUser">
       <h1 class="title is-1">Welcome</h1>
-      <h2 class="subtitle is-4 pl-2">Please 
-        <router-link to="/login" class="">
-          Log in
+      <h2 class="subtitle is-4 pl-2 no-margin">Please 
+        <router-link to="/register" class="">
+          Sign Up
         </router-link>
+        <span class="is-size-6">Or 
+          <router-link to="/login">
+            Log in
+          </router-link>
+        </span>
       </h2>
     </div>
     <div v-else>

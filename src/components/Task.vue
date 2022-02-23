@@ -49,7 +49,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .no-margin{
     margin: 0 !important;
