@@ -27,7 +27,7 @@
 export default {
     data(){
         return {
-            isLoading: false;
+            isLoading: false,
             loginCreds: {
                 username: '',
                 password: '',
