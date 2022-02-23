@@ -36,7 +36,7 @@
                             {{taskToEdit.description}}
                         </div>
                         <textarea v-show="toEdit" v-model="taskToEdit.description" class="textarea mt-4" placeholder="Task description"></textarea>
-                        <div class="is-flex is-justify-content-space-between">
+                        <div :class="[toEdit ? 'is-justify-content-space-between' : 'is-justify-content-end']" class="is-flex">
                             <div v-show="toEdit" class="block mt-4">
                                 <label class="checkbox">
                                     Mark as completed
@@ -58,9 +58,9 @@
                             </div>
                         </div>
                         <div v-show="!toEdit">
-                            <div class="is-flex is-justify-content-space-between mt-4">
+                            <div :class="[isAdmin ? 'is-justify-content-space-between' : 'is-justify-content-center']" class="is-flex mt-4">
                                 <button @click="modalDelTask = !modalDelTask" v-if="isAdmin" class="button is-danger is-outlined">Delete task</button>
-                                <button @click.prevent="switchEdit(true)" class="button is-info">Edit Task</button>
+                                <button @click.prevent="switchEdit(true)" class="button is-info is-outlined">Edit Task</button>
                             </div>
                         </div>
                         <div v-show="toEdit">
