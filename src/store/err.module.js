@@ -1,3 +1,5 @@
+import router from '../router';
+
 const initState = {
     isErr: false,
     errMsg: "",
@@ -10,7 +12,8 @@ export const err = {
         setError({commit}, errorData){
             if(errorData.name==="TokenExpiredError"){
                 localStorage.removeItem('user');
-                commit('setError', errorData)
+                commit('setError', errorData);
+                router.push('/login');
             }else{
                 commit('setError', {message: errorData})
             }
