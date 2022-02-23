@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div v-else class="navbar-item"> 
-                    <a class="button is-light">
+                    <a @click.prevent="logout" class="button is-light">
                         Logout
                     </a>
                 </div>
@@ -69,6 +69,11 @@ export default {
             }
         }
     },
+    methods: {
+        logout(){
+            this.$store.dispatch('auth/logout');
+        }
+    }
 }
 </script>
 
