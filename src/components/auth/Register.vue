@@ -61,10 +61,13 @@ export default {
 
             if(!this.registerCreds.username){
                 this.errors.username = true;
+                this.isLoading = false;
             }else if(!this.registerCreds.password){
                 this.errors.password = true;
+                this.isLoading = false;
             }else if(this.registerCreds.password != this.registerCreds.password_confirm){
                 this.errors.password = true;
+                this.isLoading = false;
             }else{
                 console.log(this.$api_url);
                 this.$axios.post(`${this.$api_url}/auth/users`, {
