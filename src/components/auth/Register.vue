@@ -67,7 +67,7 @@ export default {
                 this.errors.password = true;
             }else{
                 console.log(this.$api_url);
-                this.$axios.post(`${this.$api_url}/auth/employees`, {
+                this.$axios.post(`${this.$api_url}/auth/users`, {
                     username: this.registerCreds.username,
                     password: this.registerCreds.password,
                 }).then(res=>{

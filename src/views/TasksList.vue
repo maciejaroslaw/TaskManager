@@ -192,7 +192,7 @@ export default {
                     return;
                 }
             }
-            this.$axios.post(`${this.$api_url}/admin/create-task`, {
+            this.$axios.post(`${this.$api_url}/admin/tasks`, {
                 title: this.newTask.title,
                 description: this.newTask.description,
                 priority: this.newTask.priority,
@@ -208,7 +208,7 @@ export default {
             this.modalEditTask = !this.modalEditTask; 
         },
         editTask(){
-            this.$axios.put(`${this.$api_url}/edit-task`, {
+            this.$axios.put(`${this.$api_url}/tasks/${this.taskToEdit.id}`, {
                 taskToEdit: this.taskToEdit,
             }, {headers: this.$token()}).then(res=>{
                 this.getTasks();
@@ -220,7 +220,7 @@ export default {
             });
         },
         deleteTask(){
-            this.$axios.delete(`${this.$api_url}/admin/delete-task/${this.taskToEdit.id}`,  {headers: this.$token()}).then(res=>{
+            this.$axios.delete(`${this.$api_url}/admin/tasks/${this.taskToEdit.id}`,  {headers: this.$token()}).then(res=>{
                 this.getTasks();
                 this.modalDelTask = false;
                 this.modalEditTask = false;
