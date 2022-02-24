@@ -186,6 +186,12 @@ export default {
             })
         },
         createTask(){
+            for(const [key, val] of Object.entries(this.newTask)){
+                if(val === "" || val === null){
+                    this.$store.dispatch("err/setError", `${key} cannot be empty!`)
+                    return;
+                }
+            }
             this.$axios.post(`${this.$api_url}/admin/create-task`, {
                 title: this.newTask.title,
                 description: this.newTask.description,
