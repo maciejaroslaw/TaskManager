@@ -86,7 +86,7 @@ export default {
                     if(err.response.data.message === "Username already taken!"){
                         this.errors.username = true;
                     }
-                    
+                    this.isLoading = false;
                 });
             }
         }
