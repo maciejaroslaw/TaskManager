@@ -1,6 +1,6 @@
 <template>
     <div v-if="!loading">
-        <div class="columns is-justify-content-center mt-4">
+        <div class="columns is-flex-wrap-wrap is-justify-content-center mt-4">
             <div v-for="user in users" :key="user.id" class="column is-one-quarter">
                 <div class="card">
                     <div class="card-image">
