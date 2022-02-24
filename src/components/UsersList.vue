@@ -62,7 +62,7 @@ export default {
         }
     },
     mounted(){
-        this.$axios.get(`${this.$api_url}/admin/users`, {headers: this.$token()}).then(res=>{
+        this.$axios.get(`${this.$api_url}/admin/employees`, {headers: this.$token()}).then(res=>{
             this.users = res.data.users;
             this.loading = false
         }).catch(err=>console.log(err));
