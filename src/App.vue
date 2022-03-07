@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <NavBar />
-    <div>
+    <div class="page-absolute">
       <router-view v-slot="{Component}">
         <transition
           enter-active-class="animate__animated animate__slideInLeft"

@@ -1,5 +1,5 @@
 <template>
-    <div style="height: 100%" class="is-flex pt-6 is-align-items-start is-justify-content-center is-flex-direction-row columns mx-0">
+    <div style="height: 100%; position: absolute; min-width: 100%" class="is-flex pt-6 is-align-items-start is-justify-content-center is-flex-direction-row columns mx-0">
         <form class="box p-6 column is-half">
             <div class="field">
                 <label class="label">Username</label>
