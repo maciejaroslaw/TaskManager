@@ -2,7 +2,14 @@
   <div class="container">
     <NavBar />
     <div>
-      <router-view></router-view>
+      <router-view v-slot="{Component}">
+        <transition
+          enter-active-class="animate__animated animate__slideInLeft"
+          leave-active-class="animate__animated animate__slideOutRight"
+        >
+          <component :is="Component" />
+        </transition>
+      </router-view>
       <div class="modal err" :class="[isErr ? 'is-active': '']">
           <div class="modal-background"></div>
           <div class="modal-content">
