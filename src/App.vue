@@ -2,10 +2,10 @@
   <div class="container">
     <NavBar />
     <div class="page-absolute">
-      <router-view v-slot="{Component}">
+      <router-view v-slot="{Component, route}">
         <transition
-          enter-active-class="animate__animated animate__slideInLeft"
-          leave-active-class="animate__animated animate__slideOutRight"
+          :enter-active-class="route.meta.enterClass"
+          :leave-active-class="route.meta.leaveClass"
         >
           <component :is="Component" />
         </transition>

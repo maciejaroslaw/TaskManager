@@ -10,26 +10,46 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    meta: {
+      enterClass: 'animate__animated animate__slideInLeft',
+      leaveClass: 'animate__animated animate__slideOutRight',
+    }
   },
   {
     path: "/login",
     name: "login",
     component: Login,
+    meta: {
+      enterClass: 'animate__animated animate__slideInLeft',
+      leaveClass: 'animate__animated animate__slideOutRight',
+    }
   },
   {
     path: "/register",
     name: "register",
     component: Register,
+    meta: {
+      enterClass: 'animate__animated animate__slideOutRight',
+      leaveClass: 'animate__animated animate__slideInLeft',
+    }
   },
   {
     path: "/users",
     name: "users",
     component: UsersList,
+    meta: {
+      enterClass: 'animate__animated animate__slideInLeft',
+      leaveClass: 'animate__animated animate__slideOutRight',
+    }
   },
   {
     path: "/tasks",
     name: "tasks",
     component: TasksList,
+    meta: {
+      enterClass: 'animate__animated animate__slideInLeft',
+      leaveClass: 'animate__animated animate__slideOutRight',
+    }
   }
 ];
 
