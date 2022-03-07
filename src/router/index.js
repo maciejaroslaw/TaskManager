@@ -29,8 +29,8 @@ const routes = [
     name: "register",
     component: Register,
     meta: {
-      enterClass: 'animate__animated animate__slideOutRight',
-      leaveClass: 'animate__animated animate__slideInLeft',
+      enterClass: 'animate__animated animate__slideInRight',
+      leaveClass: 'animate__animated animate__slideOutLeft',
     }
   },
   {
