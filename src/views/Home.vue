@@ -1,5 +1,5 @@
 <template>
-  <div class="hello block pt-6 pl-4">
+  <div style="position: absolute; min-width: 100%" class="hello block pt-6 pl-4">
     <div v-if="!currentUser">
       <h1 class="title is-1">Welcome</h1>
       <h2 class="subtitle is-4 pl-2 no-margin">Please 

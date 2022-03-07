@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="position: absolute; min-width: 100%">
         <div v-if="!isLoading" class="columns is-flex-wrap-wrap mt-4 mx-0">
             <transition-group name="list-complete">
                 <div v-for="task in tasks" :key="task.id" class="list-complete-item column is-one-quarter">
